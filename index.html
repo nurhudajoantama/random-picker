@@ -9,19 +9,39 @@
     <link rel="stylesheet" href="style/style.css" />
   </head>
   <body>
-    <h1>Random Picker</h1>
-
-    <textarea id="box"></textarea>
-
-    <div>
-      <button id="btn-pick">Random Picker</button>
-      <button id="btn-sort">Random Sort</button>
-
-      <input type="text" id="max-team-member" placeholder="Jumlah maksimal setim" />
-      <button id="btn-team">Random Team</button>
+    <div class="bg-header">
+      <div class="header">
+        <div>
+          <h1>Random<br />Picker</h1>
+          <p><u> Random Picker, Random Sorting, Random Group </u></p>
+          <p>
+            Create randomize easier with this site <br />
+            without internet (In Client-Side)
+          </p>
+        </div>
+        <a href="#random">Lets Try</a>
+      </div>
+    </div>
+    <div class="bg-input-area">
+      <div class="input-area" id="random">
+        <textarea id="box" placeholder="Input item here . . ."></textarea>
+        <div class="utils">
+          <button id="btn-pick">Random Picker</button>
+          <button id="btn-sort">Random Sort</button>
+          <!-- <div> -->
+          <fieldset>
+            <label>Max item per group </label>
+            <input type="number" id="max-team-member" placeholder="number" min="1" value="1" />
+          </fieldset>
+          <button id="btn-team">Random Team</button>
+          <!-- </div> -->
+        </div>
+      </div>
     </div>
 
-    <div id="result"></div>
+    <div class="bg-result">
+      <div id="result" hidden="true"></div>
+    </div>
 
     <script src="/script/script.js"></script>
     <script src="/script/random.js"></script>

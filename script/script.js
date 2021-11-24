@@ -63,7 +63,7 @@ function pickerListener(e) {
   // create result
   const result = randomPick(members);
   // create html result for display and show
-  const p = document.createElement("p");
+  const p = document.createElement("span");
   p.innerHTML = result;
   showResult(p);
 }
