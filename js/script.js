@@ -25,15 +25,22 @@ display.addEventListener("click", downloadListener);
  * @returns {Array}
  */
 function getInput() {
-  return box.value.split("\n");
+  const value = box.value;
+  if (value == "") {
+    Swal.fire("Error", "Apaan yang mau di random woy !!", "warning");
+    return;
+  }
+  return value.split("\n");
 }
 /**
  * Function to reset display result and show result
- * @param {*} id
+ * @param {*} result
  */
 function showResult(result) {
   display.innerHTML = "";
   display.appendChild(result);
+  location.hash = "#result";
+  display.scrollIntoView();
 }
 
 /**
@@ -43,6 +50,7 @@ function showResult(result) {
  */
 function createDownloadButton(id) {
   const dwnldBtn = document.createElement("button");
+  dwnldBtn.className = "btn btn-light px-3 m-3";
   dwnldBtn.id = id;
   dwnldBtn.innerHTML = "Download CSV";
   display.appendChild(dwnldBtn);
@@ -60,12 +68,16 @@ function pickerListener(e) {
 
   // get input from user
   const members = getInput();
+  if (!members) {
+    return;
+  }
   // create result
   const result = randomPick(members);
   // create html result for display and show
-  const p = document.createElement("span");
-  p.innerHTML = result;
-  showResult(p);
+  const span = document.createElement("span");
+  span.innerHTML = result;
+  span.className = "text-white fs-1 fw-bold text-center";
+  showResult(span);
 }
 
 /**
@@ -83,14 +95,19 @@ function sortListener(e) {
 
   // get input from user
   const members = getInput();
+  if (!members) {
+    return;
+  }
 
   // create result
   const result = randomSort(members);
 
   // create html result for display
   const ol = document.createElement("ol");
+  ol.className = "text-white fs-5";
   result.forEach((res) => {
     const li = document.createElement("li");
+    li.className = "mb-1";
     li.innerHTML = res;
     ol.appendChild(li);
   });
@@ -120,31 +137,46 @@ function teamListener(e) {
   const maxTeamMember = parseInt(fieldMaxTeamMember.value);
   // check if max team member is valid
   if (!maxTeamMember || maxTeamMember < 1) {
-    return alert("isi maksimal setimnya\njangan ngadi-ngadi ngisinya");
+    Swal.fire("Error", "isi maksimal setimnya jangan ngadi-ngadi ngisinya", "error");
   }
 
   // get input from user
   const members = getInput();
+  if (!members) {
+    return;
+  }
 
   // create result
   const teams = makeGroup(randomSort(members), maxTeamMember);
 
   // create html result for display
-  const olOut = document.createElement("ol");
-  teams.forEach((team) => {
-    const liOut = document.createElement("li");
-    const olIn = document.createElement("ol");
+  const outter = document.createElement("div");
+  outter.className = "row";
+  teams.forEach((team, i) => {
+    const row = document.createElement("div");
+    row.className = "col-md-4 p-3";
+    const card = document.createElement("div");
+    card.className = "card p-2";
+    const title = document.createElement("h5");
+    title.className = "card-title ms-3 mt-2";
+    title.innerHTML = "Group " + (i + 1);
+    card.appendChild(title);
+    const cardBody = document.createElement("div");
+    cardBody.className = "card-body";
+    const ol = document.createElement("ol");
     team.forEach((member) => {
       const li = document.createElement("li");
       li.innerHTML = member;
-      olIn.appendChild(li);
+      ol.appendChild(li);
     });
-    liOut.appendChild(olIn);
-    olOut.appendChild(liOut);
+    cardBody.appendChild(ol);
+    card.appendChild(cardBody);
+    row.appendChild(card);
+    outter.appendChild(row);
   });
 
   // show result
-  showResult(olOut);
+  showResult(outter);
   // change download result
   downloadResult = teams;
   // create download button

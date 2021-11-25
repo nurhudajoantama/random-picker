@@ -6,45 +6,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Random Picker</title>
 
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="style/bootstrap.min.css" />
+    <!-- Custom css -->
     <link rel="stylesheet" href="style/style.css" />
+
+    <script src="js/sweetalert2.all.min.js"></script>
   </head>
   <body>
-    <div class="bg-header">
-      <div class="header">
+    <div class="header">
+      <div class="container py-5">
+        <div class="text-white my-5">
+          <h1 class="my-4">Random<br />Picker</h1>
+          <div class="fs-5">
+            <p><u> Random Picker, Random Sorting, Random Group </u></p>
+            <p>
+              Create randomize easier with this site <br />
+              without internet (In Client-Side)
+            </p>
+          </div>
+        </div>
+        <div class="my-5">
+          <a href="#random" class="btn btn-light rounded-pill px-4 py-2 fw-bold fs-3">Lets Try</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-area" id="random">
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-md-6">
+            <fieldset>
+              <label for="box" class="form-label text-white fw-bold">Input Item</label>
+              <textarea id="box" class="form-control fs-5" rows="15" placeholder="Input item here . . ."></textarea>
+            </fieldset>
+          </div>
+          <div class="col-md-3 align-self-end d-grid gap-2 mt-3">
+            <button class="btn btn-light m-2 fw-bold" id="btn-pick">Random Picker</button>
+            <button class="btn btn-light m-2 fw-bold" id="btn-sort">Random Sort</button>
+            <fieldset class="m-2">
+              <label class="form-label text-white">Max item per group </label>
+              <div class="col-md-6">
+                <input type="number" class="form-control" id="max-team-member" placeholder="number" min="1" />
+              </div>
+            </fieldset>
+            <button class="btn btn-light m-2 fw-bold" id="btn-team">Random Team</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="result overflow-auto">
+      <div class="container py-5 d-flex flex-column" style="height: 100%">
+        <h1 class="text-white">Result</h1>
+        <div class="d-flex justify-content-center align-items-center flex-grow-1">
+          <div id="result"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer py-3">
+      <div class="container py-5 d-flex align-items-center">
+        <div class="me-5">
+          <span class="text-white">&copy; 2021 Kelompok 8 Algoritma Pemrograman 1C.</span>
+        </div>
         <div>
-          <h1>Random<br />Picker</h1>
-          <p><u> Random Picker, Random Sorting, Random Group </u></p>
-          <p>
-            Create randomize easier with this site <br />
-            without internet (In Client-Side)
-          </p>
-        </div>
-        <a href="#random">Lets Try</a>
-      </div>
-    </div>
-    <div class="bg-input-area">
-      <div class="input-area" id="random">
-        <textarea id="box" placeholder="Input item here . . ."></textarea>
-        <div class="utils">
-          <button id="btn-pick">Random Picker</button>
-          <button id="btn-sort">Random Sort</button>
-          <!-- <div> -->
-          <fieldset>
-            <label>Max item per group </label>
-            <input type="number" id="max-team-member" placeholder="number" min="1" value="1" />
-          </fieldset>
-          <button id="btn-team">Random Team</button>
-          <!-- </div> -->
+          <ul class="list-unstyled text-white m-0">
+            <li>Muhammad Haikal Asyam</li>
+            <li>Nurhuda Joantama Putra</li>
+            <li>Viliananda Tripita Claura</li>
+          </ul>
         </div>
       </div>
     </div>
 
-    <div class="bg-result">
-      <div id="result" hidden="true"></div>
-    </div>
+    <!-- Bootstrap JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
-    <script src="/script/script.js"></script>
-    <script src="/script/random.js"></script>
-    <script src="/script/download.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+    <script src="js/random.js"></script>
+    <script src="js/download.js"></script>
   </body>
 </html>

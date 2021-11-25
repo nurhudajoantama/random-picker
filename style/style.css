@@ -1,142 +1,24 @@
-/* Resetter */
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-size: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-button {
-  cursor: pointer;
-  display: block;
-  margin: 1rem;
-  background: #fff;
-  border-radius: 0.5rem;
-  padding: 0.5rem 0.75rem;
-}
-
-button:hover {
-  text-decoration: underline;
-}
-
-.bg-header {
-  background: #373c43;
-}
-
-.header,
-.input-area,
-#result {
-  max-width: 1460px;
-  margin: auto;
-  padding: 0 7rem;
-  color: #fff;
-}
-
 .header {
-  padding: 7rem;
+  background: #373c43;
 }
 
 .header h1 {
   font-size: 5rem;
 }
 
-.header p {
-  font-size: 1.25rem;
-  margin: 1rem 0;
-  line-height: 2rem;
-}
-
-.header > div {
-  margin: 2rem 0;
-}
-
-.header a {
-  background: #fff;
-  color: #000;
-  border-radius: 1.5rem;
-  padding: 1rem 2rem;
-  font-weight: bold;
-  font-size: 1.5rem;
-  text-decoration: none;
-}
-
-.header a:hover {
+.header .btn:hover {
   text-decoration: underline;
 }
 
-.bg-input-area {
+.input-area {
   background: #292f36;
 }
 
-.input-area {
-  padding: 2rem 7rem;
-  min-height: 750px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  /* width: 50%; */
-  /* overflow: auto; */
-}
-
-.input-area textarea {
-  overflow: auto;
-  vertical-align: top;
-  margin: 0 2rem 0 0;
-  padding: 1rem 1.75rem;
-  width: 30rem;
-  height: 650px;
-  font-family: Arial;
-  font-size: 1.25rem;
-  resize: none;
-  outline: none;
-  border: none;
-  border-radius: 0.25rem;
-}
-
-.input-area button {
-  margin: 1rem 0;
-  font-size: 1.2rem;
-  font-weight: bold;
-  width: 15rem;
-  padding: 1rem 1.2rem;
-  text-align: left;
-}
-
-.input-area #max-team-member {
-  /* margin: 1rem 0; */
-  padding: 0.4rem 0.75rem;
-  font-size: 1.2rem;
-  width: 5rem;
-  text-align: left;
-  border-radius: 0.25rem;
-}
-
-.input-area label {
-  display: block;
-  margin: 0.5rem 0 0.4rem 0;
-}
-
-.bg-result {
-  position: absolute;
-  top: 0;
-  bottom: 0;
+.result {
   background: #444950;
+  height: 80vh;
 }
 
-#result {
-  color: #fff;
-  width: 100%;
-  overflow: auto;
-  height: 50rem;
-}
-
-#result span {
-  display: block;
-  margin: 10rem auto;
-  text-align: center;
-  font-size: 3rem;
-  font-weight: bold;
-  letter-spacing: 0.2rem;
+.footer {
+  background: #5f6369;
 }
