@@ -61,7 +61,8 @@ function createDownloadButton(id) {
 /**
  * Listener function for picker button
  * It will make random picker from input
- * and show result
+ * and show result each 100 milisecond
+ * and result will be pick in last random picker
  */
 function pickerListener(e) {
   e.preventDefault();
@@ -74,10 +75,22 @@ function pickerListener(e) {
   // create result
   const result = randomPick(members);
   // create html result for display and show
-  const span = document.createElement("span");
-  span.innerHTML = result;
-  span.className = "text-white fs-1 fw-bold text-center";
-  showResult(span);
+
+  location.hash = "#result";
+  display.scrollIntoView();
+
+  const acak = setInterval(function () {
+    const tesRes = randomPick(members);
+    const span1 = document.createElement("span");
+    span1.innerHTML = tesRes;
+    span1.className = "text-white fs-1 fw-bold text-center m-5";
+    display.innerHTML = "";
+    display.appendChild(span1);
+  }, 100);
+
+  setTimeout(() => {
+    clearInterval(acak);
+  }, 2000);
 }
 
 /**
@@ -125,7 +138,7 @@ function sortListener(e) {
  * It will make random team from input
  * and show result
  * Result will be random team
- * Show as list in list in html
+ * Show as list in card in html
  * After showing result, it will create download button
  * with id team-dwnld
  * And change variable downloadResult to result
@@ -137,6 +150,7 @@ function teamListener(e) {
   const maxTeamMember = parseInt(fieldMaxTeamMember.value);
   // check if max team member is valid
   if (!maxTeamMember || maxTeamMember < 1) {
+    // using sweet alert to show error
     Swal.fire("Error", "isi maksimal setimnya jangan ngadi-ngadi ngisinya", "error");
   }
 

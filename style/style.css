@@ -16,7 +16,7 @@
 
 .result {
   background: #444950;
-  height: 80vh;
+  min-height: 80vh;
 }
 
 .footer {

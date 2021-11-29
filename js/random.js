@@ -8,7 +8,10 @@
  * @returns {String}
  */
 function randomPick(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  const result = arr[randomIndex];
+
+  return result;
 }
 
 /**
