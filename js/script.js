@@ -72,22 +72,24 @@ function pickerListener(e) {
   if (!members) {
     return;
   }
-  // create result
-  const result = randomPick(members);
-  // create html result for display and show
 
+  // create html result for display and show
   location.hash = "#result";
   display.scrollIntoView();
 
+  // create element for result
+  const span1 = document.createElement("span");
+  span1.className = "text-white fs-1 fw-bold text-center m-5";
+  display.innerHTML = "";
+  display.appendChild(span1);
+
+  // asign element result with delay animation
   const acak = setInterval(function () {
     const tesRes = randomPick(members);
-    const span1 = document.createElement("span");
     span1.innerHTML = tesRes;
-    span1.className = "text-white fs-1 fw-bold text-center m-5";
-    display.innerHTML = "";
-    display.appendChild(span1);
   }, 100);
 
+  // remove delay animation after
   setTimeout(() => {
     clearInterval(acak);
   }, 2000);
