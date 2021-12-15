@@ -25,7 +25,7 @@ function randomSort(arr) {
   var i = arr.length;
   if (i == 0) return false;
   while (--i) {
-    var j = Math.floor(Math.random() * (i + 1));
+    var j = Math.floor(Math.random() * i);
     var tempi = arr[i];
     var tempj = arr[j];
     arr[i] = tempj;
