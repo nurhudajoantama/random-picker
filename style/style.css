@@ -19,6 +19,10 @@
   min-height: 80vh;
 }
 
+.card {
+  min-width: fit-content;
+}
+
 .footer {
   background: #5f6369;
 }

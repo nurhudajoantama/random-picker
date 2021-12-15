@@ -154,6 +154,7 @@ function teamListener(e) {
   if (!maxTeamMember || maxTeamMember < 1) {
     // using sweet alert to show error
     Swal.fire("Error", "isi maksimal setimnya jangan ngadi-ngadi ngisinya", "error");
+    return;
   }
 
   // get input from user
