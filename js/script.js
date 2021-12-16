@@ -27,7 +27,7 @@ display.addEventListener("click", downloadListener);
 function getInput() {
   const value = box.value;
   if (value == "") {
-    Swal.fire("Error", "Apaan yang mau di random woy !!", "warning");
+    Swal.fire("Error", "Nothing can be scrambled, please fill in the items", "error");
     return;
   }
   return value.split("\n");
@@ -153,7 +153,7 @@ function teamListener(e) {
   // check if max team member is valid
   if (!maxTeamMember || maxTeamMember < 1) {
     // using sweet alert to show error
-    Swal.fire("Error", "isi maksimal setimnya jangan ngadi-ngadi ngisinya", "error");
+    Swal.fire("Error", "Enter number for maximum items per group", "error");
     return;
   }
 
