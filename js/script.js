@@ -78,10 +78,13 @@ function pickerListener(e) {
   display.scrollIntoView();
 
   // create element for result
+  const div = document.createElement("div");
+  div.className = "d-flex justify-content-center align-items-center flex-grow-1";
   const span1 = document.createElement("span");
   span1.className = "text-white fs-1 fw-bold text-center m-5";
   display.innerHTML = "";
-  display.appendChild(span1);
+  div.appendChild(span1);
+  display.appendChild(div);
 
   // asign element result with delay animation
   const acak = setInterval(function () {
