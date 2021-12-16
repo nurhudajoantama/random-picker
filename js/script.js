@@ -213,33 +213,46 @@ function teamListener(e) {
 function downloadListener(e) {
   e.preventDefault();
 
-  // check id of button
-  if (e.target.id === "sort-dwnld") {
-    // create head of csv
-    var result = "Urutan,Anggota";
-    // by looping downloadResult and add to result it will create body of csv
-    downloadResult.forEach((res, i) => {
-      result += `\n${i + 1},${res}`;
+  if (e.target.id == "sort-dwnld" || e.target.id == "team-dwnld") {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You want to download this file?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: "Yes, download it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // check id of button
+        if (e.target.id === "sort-dwnld") {
+          // create head of csv
+          var result = "Urutan,Anggota";
+          // by looping downloadResult and add to result it will create body of csv
+          downloadResult.forEach((res, i) => {
+            result += `\n${i + 1},${res}`;
+          });
+          // create and download csv file from result
+          // with name result.csv
+          // this function on another file
+          download("result.csv", result);
+        }
+
+        // check id of button
+        if (e.target.id == "team-dwnld") {
+          // create head of csv
+          var result = "Team,No Anggota,Anggota";
+          // by looping downloadResult and add to result it will create body of csv
+          downloadResult.forEach((res, i) => {
+            result += `\n${i + 1}`;
+            res.forEach((r, j) => {
+              result += `\n,${j + 1},${r}`;
+            });
+          });
+          // create and download csv file from result
+          // with name result.csv
+          // this function on another file
+          download("result.csv", result);
+        }
+      }
     });
-    // create and download csv file from result
-    // with name result.csv
-    // this function on another file
-    download("result.csv", result);
-  }
-  // check id of button
-  if (e.target.id == "team-dwnld") {
-    // create head of csv
-    var result = "Team,No Anggota,Anggota";
-    // by looping downloadResult and add to result it will create body of csv
-    downloadResult.forEach((res, i) => {
-      result += `\n${i + 1}`;
-      res.forEach((r, j) => {
-        result += `\n,${j + 1},${r}`;
-      });
-    });
-    // create and download csv file from result
-    // with name result.csv
-    // this function on another file
-    download("result.csv", result);
   }
 }
