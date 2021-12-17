@@ -1,5 +1,7 @@
 # Radom Picker
 
+[https://nurhudajoantama.github.io/random-picker/](https://nurhudajoantama.github.io/random-picker/)
+
 Dibuat untuk menyelesaikan tugas kuliah
 
 Kelompok 8:
