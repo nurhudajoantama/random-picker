@@ -4,7 +4,7 @@
 
 Dibuat untuk menyelesaikan tugas kuliah
 
-Kelompok 8:
+Kelompok 5:
 
 - Muhammad Haikal Asyam
 - Nurhuda Joantama Putra
