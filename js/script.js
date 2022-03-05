@@ -48,11 +48,11 @@ function showResult(result) {
  * with id
  * @param {String} id
  */
-function createDownloadButton(id) {
+function createButton(name, id) {
   const dwnldBtn = document.createElement("button");
   dwnldBtn.className = "btn btn-light px-3 m-3";
   dwnldBtn.id = id;
-  dwnldBtn.innerHTML = "Download CSV";
+  dwnldBtn.innerHTML = name;
   display.appendChild(dwnldBtn);
 }
 
@@ -135,7 +135,8 @@ function sortListener(e) {
   // change download result
   downloadResult = result;
   // create download button
-  createDownloadButton("sort-dwnld");
+  createButton("Donwload CSV", "sort-dwnld");
+  createButton("Copy Text", "sort-copy");
 }
 
 /**
@@ -200,7 +201,8 @@ function teamListener(e) {
   // change download result
   downloadResult = teams;
   // create download button
-  createDownloadButton("team-dwnld");
+  createButton("Download CSV", "team-dwnld");
+  createButton("Copy Text", "team-copy");
 }
 
 /**
@@ -254,5 +256,39 @@ function downloadListener(e) {
         }
       }
     });
+  }
+
+  if (e.target.id == "sort-copy" || e.target.id == "team-copy") {
+    if (e.target.id === "sort-copy") {
+      // create head of csv
+      var result = "Random Sort\n";
+      // by looping downloadResult and add to result it will create body of csv
+      downloadResult.forEach((res, i) => {
+        result += `\n${i + 1}. ${res}`;
+      });
+      copyTextToClipboard(result, (res) => {
+        if (res) {
+          Swal.fire("Text Has Copied!", "Result text has beed copied", "success");
+        }
+      });
+    }
+
+    // check id of button
+    if (e.target.id == "team-copy") {
+      // create head of csv
+      var result = "Random Team";
+      // by looping downloadResult and add to result it will create body of csv
+      downloadResult.forEach((res, i) => {
+        result += `\n\nGroup ${i + 1}`;
+        res.forEach((r, j) => {
+          result += `\n${j + 1}. ${r}`;
+        });
+      });
+      copyTextToClipboard(result, (res) => {
+        if (res) {
+          Swal.fire("Text Has Copied!", "Result text has beed copied", "success");
+        }
+      });
+    }
   }
 }
